@@ -205,7 +205,7 @@ Level 2に加えて、以下を実施します。
 
 - 目的: リリース品質と運用耐性を確保する
 - 導入レベル: Level 3
-- 使うファイル: `docs/core/commercial-readiness.md`, `docs/core/security-rules.md`, `docs/core/incident-response.md`
+- 使うファイル: `docs/core/commercial-readiness.md`, `docs/core/security-rules.md`, `docs/runbooks/incident-response.md`
 - セキュリティ確認: secret管理・依存関係・脆弱性対応フロー
 - リリース確認: Go/No-Go基準・ロールバック手順
 - サポート確認: 問い合わせ導線・障害報告テンプレート
