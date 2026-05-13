@@ -1,0 +1,13 @@
+name: adr-check
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 雛形チェック
+        run: |
+          echo "adr-check.yml の雛形です"
+          echo "TODO: 実運用ツールを組み込む"
