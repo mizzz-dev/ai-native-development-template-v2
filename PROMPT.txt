@@ -1,5 +1,44 @@
 # Commercial-Grade AI-Native Engineering OS Prompt
 
+このPROMPTの使い方
+
+このファイルは、Codex・ChatGPT・Claude・CursorなどのAIに作業を依頼するときに渡す基本プロンプトです。
+
+初めて使う場合は、以下を一緒にAIへ渡してください。
+- PROMPT.md
+- 対象IssueのURL
+- 作業内容
+- 必要に応じて docs/adoption-guide.md
+
+最小の依頼例
+このRepositoryのPROMPT.mdに従って作業してください。
+
+対象Issue:
+{{ISSUE_URL}}
+
+作業内容:
+{{TASK_DESCRIPTION}}
+
+必ず守ること:
+- PR本文は日本語
+- commit messageは日本語
+- 作業ログを保存
+- AIプロンプトログを保存
+- 重要判断はADRへ保存
+
+導入作業を依頼する場合
+このRepositoryにAI開発プロトコルを導入してください。
+
+参照:
+- PROMPT.md
+- docs/adoption-guide.md
+
+導入レベル:
+Level 1 / Level 2 / Level 3
+
+対象Repository:
+{{REPOSITORY_URL}}
+
 ## 日本語出力ポリシー
 すべての説明、判断理由、作業ログを日本語で出力する。
 
