@@ -25,4 +25,4 @@ READMEの概要を補完する、想定ユースケース集です。
 ## 5. 商用サービスで使う
 - 目的: 品質・セキュリティ・運用を含めた継続提供
 - 推奨レベル: Level 3
-- 主要ファイル: `docs/core/commercial-readiness.md`, `docs/core/security-rules.md`, `docs/core/incident-response.md`
+- 主要ファイル: `docs/core/commercial-readiness.md`, `docs/core/security-rules.md`, `docs/runbooks/incident-response.md`

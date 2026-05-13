@@ -51,6 +51,12 @@ AIに以下を渡してください。
 - 重要判断はADRへ保存
 ```
 
+
+### 置き換え例
+
+- `{{ISSUE_URL}}`: 対象IssueのURL（例: `https://github.com/your-org/your-repo/issues/123`）
+- `{{TASK_DESCRIPTION}}`: AIに依頼する具体的な作業（例: `ログイン画面のバリデーション追加`）
+
 ## 日本語出力ポリシー
 すべての説明、判断理由、作業ログを日本語で出力する。
 
