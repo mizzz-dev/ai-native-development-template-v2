@@ -1,256 +1,122 @@
 # AI Native Development Template
 
-AIと一緒に安全・継続的に開発するためのRepositoryテンプレート
+AIと一緒に、安全・継続的・再現可能に開発するためのRepositoryテンプレート
 
-このRepositoryは、Codex・ChatGPT・Claude・CursorなどのAIに開発を依頼するときに、作業ルール、記録方法、PR/Issue運用、品質チェックを整えるためのテンプレートです。
+<p align="center">
+  <strong>AIに開発を任せっぱなしにせず、作業・判断・ログ・PRをRepositoryに残すための開発プロトコルです。</strong>
+</p>
 
-導入手順を詳しく知りたい場合は、まず [docs/adoption-guide.md](docs/adoption-guide.md) を読んでください。
-AIにそのまま渡す基本プロンプトは [PROMPT.md](PROMPT.md) です。コピペしやすいテキスト版は [PROMPT.txt](PROMPT.txt) です。
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Language](https://img.shields.io/badge/docs-Japanese-blue)
+![AI Ready](https://img.shields.io/badge/AI-ready-purple)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## 目次
-- [これは何？](#これは何)
-- [なぜ必要？](#なぜ必要)
-- [誰が使える？](#誰が使える)
-- [こんな人におすすめ](#こんな人におすすめ)
-- [特徴](#特徴)
-- [これを使うと何が良くなる？](#これを使うと何が良くなる)
-- [どのファイルから読めばいい？](#どのファイルから読めばいい)
-- [導入レベル](#導入レベル)
-- [まずはこの使い方でOK](#まずはこの使い方でok)
-- [AIに渡すファイルの選び方](#aiに渡すファイルの選び方)
-- [AIに依頼するときの例](#aiに依頼するときの例)
-- [主なファイルと役割](#主なファイルと役割)
-- [基本ワークフロー](#基本ワークフロー)
-- [よくある使い方](#よくある使い方)
-- [商用利用を見据えた使い方](#商用利用を見据えた使い方)
-- [GitHub日本語運用ポリシー](#github日本語運用ポリシー)
-- [用語集](#用語集)
-- [注意点](#注意点)
-- [次にやること](#次にやること)
-- [ライセンス](#ライセンス)
+## AI開発で、こんな困りごとはありませんか？
 
-## これは何？
+- AIに何を頼んだか分からなくなる
+- 会話履歴が消えると作業を再開できない
+- PRやIssueの説明がバラバラになる
+- 別のAIや人に引き継げない
+- 商用利用に必要な確認が抜ける
+- 変更理由が残らず、後からレビューできない
 
-AIにコードを書いてもらうだけでは、あとから「なぜこの実装にしたのか」「どこまで終わったのか」が分からなくなりがちです。
+このテンプレートは、それらを防ぐために、AIへの依頼・作業ログ・判断理由・PR/Issue運用をRepositoryに残す仕組みを提供します。
 
-このテンプレートは、AIと開発するときの**ルール集**です。作業ログや判断理由をRepositoryに残す仕組み、Issue/PR/Discussionを使った進め方、AIへの依頼文テンプレートをまとめています。個人開発でもチーム開発でも使えます。将来的に商用利用を目指すときの準備にも対応しています。
+## 30秒で分かるこのRepository
 
-## なぜ必要？
+| 項目 | 内容 |
+|---|---|
+| これは何？ | AIと開発するときのルール・記録・テンプレート集 |
+| 誰向け？ | AI初心者、学生、個人開発者、非エンジニア、チーム開発者 |
+| 何ができる？ | AIへの依頼、作業ログ、PR/Issue運用、判断記録を標準化 |
+| 最初に読むもの | README.md |
+| 導入手順 | docs/adoption-guide.md |
+| AIに渡すもの | PROMPT.md / PROMPT.txt |
 
-AIチャットだけに情報を残すと、会話が流れて内容が追えなくなることがあります。別のAIやメンバーに引き継ぐときも、背景が伝わりにくくなります。
+## まず読むべき3つ
 
-このRepositoryは、難しく言うと **Executable Organizational Intelligence** を目指しています。簡単に言うと、開発ルールや判断をRepositoryに残し、AIや人が同じ文脈で作業を続けられる状態を作る考え方です。
+1. [README.md](README.md)  
+   全体像を理解する入口です。
+2. [docs/adoption-guide.md](docs/adoption-guide.md)  
+   自分のRepositoryへ導入する手順です。
+3. [PROMPT.md](PROMPT.md)  
+   Codex・ChatGPT・Claude・CursorなどのAIに渡す正本です。
 
-- Repository = 記録とルールを実行できる知識ベース
-- AI = Replaceable Execution Layer（入れ替え可能な実行担当）
-- Human = Strategic Decision Layer（最終判断を行う担当）
+コピペしやすいテキスト版は [PROMPT.txt](PROMPT.txt) です。
 
-## 誰が使える？
+## 全体像
 
-- AIを使った開発を始めたい人
-- 個人開発を進めたい学生
-- GitHubのIssue/PR運用に慣れていない人
-- 非エンジニアで、AIに開発を依頼したい人
-- 小規模チームで開発ルールを整えたい人
-- 将来的に商用サービスへ育てたい人
+初心者向けに、まずは「Issueで目的を整理 → AIに実装依頼 → PRで説明 → ログを残す」という流れを覚えればOKです。
 
-### エンジニアでなくても使える？
+```mermaid
+flowchart LR
+    Human[人間] --> Issue[Issueで目的を整理]
+    Issue --> Prompt[PROMPT.mdをAIに渡す]
+    Prompt --> AI[AIが作業]
+    AI --> PR[PRで変更を説明]
+    PR --> Log[作業ログを保存]
+    Log --> Repo[Repositoryに知識が残る]
+    Repo --> NextAI[別のAIや人に引き継ぎ]
+```
 
-はい。使えます。
+このRepositoryの役割分担は明確です。READMEは入口、導入手順はadoption-guide、AI実行ルールはPROMPT.mdです。
 
-コードが書けなくても、以下の作業を進められます。
+```mermaid
+flowchart TB
+    README[README.md<br/>入口・概要・魅力] --> Adoption[docs/adoption-guide.md<br/>導入手順]
+    README --> Prompt[PROMPT.md<br/>AIに渡す正本]
+    Adoption --> Templates[docs/templates<br/>Issue/PR/ログ雛形]
+    Prompt --> AI[Codex / ChatGPT / Claude / Cursor]
+```
 
-- AIへの依頼文を整理する
-- Issueで「何を作りたいか」を整理する
-- PRで「何が変更されたか」を確認する
-- 作業ログで「どこまで進んだか」を残す
-- AI promptログで「AIに何を頼んだか」を残す
+導入は一気に全部ではなく、Level 1 → Level 2 → Level 3 と段階的に進めます。
 
-## こんな人におすすめ
-
-- AIで個人開発を進めたい人
-- Codexに作業を依頼したい人
-- ChatGPTやClaudeにコードレビューを頼みたい人
-- GitHubのIssueやPR運用を整えたい人
-- 学生でチーム開発の練習をしたい人
-- 非エンジニアだがAIを使ってプロダクトを作りたい人
-- 将来的に商用サービスとして育てたい人
-- AIに任せっぱなしではなく、安全に管理したい人
+```mermaid
+flowchart LR
+    L1[Level 1<br/>個人・学習] --> L2[Level 2<br/>チーム開発]
+    L2 --> L3[Level 3<br/>商用・本番]
+```
 
 ## 特徴
 
-### 1. AIに渡すプロンプトを標準化できる
-`PROMPT.md` と `PROMPT.txt` を使って、毎回の依頼の型をそろえられます。依頼の書き方が安定するので、AIの出力品質のブレを減らせます。
+- AI依頼の標準化（PROMPT.md / PROMPT.txt）
+- 作業ログとAIプロンプトログの保存
+- PR / Issue / Discussion / commit message の日本語運用
+- ADRによる重要判断の記録
+- 商用運用へ拡張しやすい段階設計
 
-### 2. 作業ログをRepositoryに残せる
-作業内容をテンプレートに記録すると、進捗をあとで見返せます。会話が消えても、Repositoryに履歴が残ります。
+## Before / After
 
-### 3. PR・Issue・Discussionを日本語で運用できる
-GitHub上のコミュニケーションを日本語で統一できます。レビュー時に認識ずれが起きにくくなります。
-
-### 4. AIに依頼した内容を記録できる
-`docs/ai-prompts/` に依頼文を残せます。あとで「どの指示でこの変更が出たか」を追跡しやすくなります。
-
-### 5. 判断理由をADRとして残せる
-ADRは「重要な技術判断メモ」です。なぜその技術を選んだかを残せるため、将来の見直しがしやすくなります。
-
-### 6. 商用利用を見据えた品質チェックができる
-品質ゲートやセキュリティ観点を段階的に導入できます。本番公開前に必要な確認漏れを減らせます。
-
-### 7. 複数のAIエージェントで引き継ぎしやすい
-1つのAIに依存せず、別のAIへ作業を引き継ぎやすくなります。記録があるため、背景説明の手間を減らせます。
-
-### 8. 初心者でも段階的に導入できる
-最初は最小セットだけ使い、慣れてきたら運用を増やせます。いきなり全部導入しなくて大丈夫です。
-
-## これを使うと何が良くなる？
-
-### AIへの依頼がブレにくくなる
-依頼フォーマットが決まるため、毎回ゼロから説明しなくて済みます。
-
-### 作業の途中で迷子になりにくい
-Issue・作業ログ・PRを残すので、今どこまで終わったか分かります。
-
-### 他のAIや人に引き継ぎやすい
-チャット履歴ではなくRepositoryに情報があるため、担当変更に強くなります。
-
-### PRやIssueが読みやすくなる
-書き方が統一されるので、先生・レビュアー・チームメンバーに説明しやすくなります。
-
-### 商用利用に必要な観点を忘れにくい
-セキュリティ、運用、監査、サポート準備などを段階的に確認できます。
-
-### 会話が消えてもRepositoryに記録が残る
-AIチャットだけに依存しないので、履歴消失リスクに備えられます。
-
-## どのファイルから読めばいい？
-
-初めて使う場合は、次の順番で読むのがおすすめです。
-
-| 順番 | ファイル | 目的 |
-|---|---|---|
-| 1 | `README.md` | 全体像を理解する |
-| 2 | `docs/adoption-guide.md` | 自分のRepositoryへ導入する手順を確認する |
-| 3 | `PROMPT.md` | AIに渡す基本ルールを確認する |
-| 4 | `docs/templates/` | Issue、PR、作業ログの雛形を使う |
-| 5 | `docs/core/` | 運用ルールを詳しく確認する |
-
-- `README.md` は入口です。
-- `docs/adoption-guide.md` は導入手順です。
-- `PROMPT.md` はAIに渡す指示書です。
-- `PROMPT.txt` はコピペしやすいテキスト版です。
-- `docs/templates/` は実際の運用で使う雛形です。
+| Before | After |
+|---|---|
+| AIへの依頼が毎回バラバラ | PROMPT.mdで依頼を標準化 |
+| 会話履歴にしか情報がない | Repositoryに作業ログが残る |
+| PR説明が薄い | PRテンプレートで説明がそろう |
+| なぜ決めたか分からない | ADRで判断理由が残る |
+| 別AIへ引き継げない | Issue/ログ/プロンプトで再開できる |
 
 ## 導入レベル
 
-導入手順を詳しく知りたい場合は、[docs/adoption-guide.md](docs/adoption-guide.md) を読んでください。
+| Level | 向いている人 | 使うもの | ゴール |
+|---|---|---|---|
+| Level 1 | 個人開発・学生・AI初心者 | PROMPT.md / Issue / 作業ログ | AIと安全に作業を始める |
+| Level 2 | チーム開発 | docs/core / .github / scripts | PR/Issue/ログ運用を統一 |
+| Level 3 | 商用・本番運用 | commercial readiness / security / release | 顧客提供・監査・運用に備える |
 
-### Level 1: 個人開発・学習向け
-**向いている人:** はじめてAI開発をする人、学生、個人開発者。
+詳細手順は [docs/adoption-guide.md](docs/adoption-guide.md) を参照してください。
 
-**使うもの:**
-- `PROMPT.md`
-- `README.md`
-- Issueテンプレート
-- PRテンプレート
-- 作業ログテンプレート
+## Quick Start
 
-**最初にすること:** 1つIssueを作り、AIに `PROMPT.md` とIssue内容を渡して小さなタスクを実行します。
-
-### Level 2: チーム開発向け
-**向いている人:** 複数人で開発するチーム、複数AIを併用するプロジェクト。
-
-**使うもの:**
-- `docs/core/`
-- `docs/templates/`
-- `docs/ai-prompts/`
-- `docs/adr/`
-- GitHub templates
-
-**最初にすること:** テンプレートを使ってIssue/PR/ADRの運用ルールを決め、全員で同じ書式を使います。
-
-### Level 3: 商用・本番運用向け
-**向いている人:** 外部公開サービス、受託案件、継続運用が必要なプロダクト。
-
-**使うもの:**
-- commercial readiness
-- security rules
-- release governance
-- incident response
-- support readiness
-- policy as code
-
-**最初にすること:** 公開前チェックリストを作り、品質ゲートと運用ルールをGitHub Actionsなどで自動化します。
-
-## まずはこの使い方でOK
-
-導入手順の詳細は [docs/adoption-guide.md](docs/adoption-guide.md) を参照しつつ、まずは次の7ステップで進めればOKです。
-
-### Step 1: 全体像を読む
-まず `README.md` を読みます。
-このテンプレートが何を解決するか、どのファイルが何の役割かを把握します。
-
-### Step 2: 導入手順を見る
-次に `docs/adoption-guide.md` を読み、自分のRepositoryへどの範囲を導入するか決めます。
-迷ったら Level 1 から始め、必要に応じて段階的に拡張します。
-
-### Step 3: AIに渡すプロンプトを確認する
-`PROMPT.md` または `PROMPT.txt` を開きます。
-AIへ依頼するときの必須ルール（日本語運用、ログ保存、ADR記録）を確認します。
-
-### Step 4: Issueを作る
-作りたいもの、直したいもの、相談したいことをIssueにします。
-Issueがあると、AIと人間の作業範囲や完了条件を合わせやすくなります。
-
-### Step 5: AIに依頼する
-`PROMPT.md` とIssue URLを一緒にAIへ渡します。
-必要に応じて `docs/adoption-guide.md` も渡すと、導入作業の精度が上がります。
-
-### Step 6: 作業ログを残す
-作業が進んだら `docs/templates/work-log-template.md` を使って記録します。
-「何をしたか」「次に何をするか」を残すことで、あとから再開しやすくなります。
-
-### Step 7: PRを作る
-変更内容をPRでまとめ、レビューしやすい状態にします。
-PR本文は日本語で記録し、必要なら判断理由をADRにリンクします。
-
-## AIに渡すファイルの選び方
-
-全部のファイルを毎回AIに渡す必要はありません。目的に合わせて必要最小限を渡すと、依頼の精度が上がります。
-
-### 迷ったらこれだけ渡す
-- `PROMPT.md`
-- 対象IssueのURL
-- 作業内容
-
-### 導入作業を頼む場合
-- `PROMPT.md`
-- `docs/adoption-guide.md`
-- `README.md`
-
-### コードレビューを頼む場合
-- `PROMPT.md`
-- 対象PRのURL
-- `docs/core/ai-agent-rules.md`
-- `docs/core/decision-traceability-rules.md`
-
-### 商用利用を見据える場合
-- `PROMPT.md`
-- `docs/core/commercial-readiness.md`
-- `docs/core/security-rules.md`
-- `docs/core/release-management-rules.md`
+1. [docs/adoption-guide.md](docs/adoption-guide.md) で導入レベルを選ぶ
+2. [PROMPT.md](PROMPT.md) と [PROMPT.txt](PROMPT.txt) を確認する
+3. 最初のIssueを作る
+4. `PROMPT.md + Issue URL + 作業内容` をAIへ渡す
+5. PR作成時に作業ログ・AIプロンプトログ・必要ならADRを更新する
 
 ## AIに依頼するときの例
 
-以下をCodexやChatGPTに貼り付けます。
-
-AIにそのまま渡す基本プロンプトは [PROMPT.md](PROMPT.md) です。コピペしやすいテキスト版は [PROMPT.txt](PROMPT.txt) です。
-
 ```text
-このRepositoryの開発ルールに従って作業してください。
-
-参照:
-- docs/ai-protocol/PROMPT.md
+このRepositoryのPROMPT.mdに従って作業してください。
 
 対象Issue:
 {{ISSUE_URL}}
@@ -261,113 +127,75 @@ AIにそのまま渡す基本プロンプトは [PROMPT.md](PROMPT.md) です。
 必ず守ること:
 - PR本文は日本語
 - commit messageは日本語
-- 作業ログを残す
-- AIに依頼したプロンプトを記録する
-- 重要な判断はADRに残す
+- 作業ログを保存
+- AIプロンプトログを保存
+- 重要判断はADRへ保存
 ```
-
-- `{{ISSUE_URL}}` は対象Issueのリンクに置き換えます（例: `https://github.com/your-org/your-repo/issues/12`）。
-- `{{TASK_DESCRIPTION}}` はAIに実行してほしい作業内容に置き換えます（例: `ログイン画面のバリデーションエラー表示を改善`）。
 
 ## 主なファイルと役割
 
-| ファイル / ディレクトリ | 役割 |
+| ファイル | 役割 |
 |---|---|
-| `PROMPT.md` | AIに渡す基本ルール |
-| `PROMPT.txt` | コピペしやすいテキスト版 |
-| `docs/core/` | 共通の開発ルール |
-| `docs/templates/` | Issue、PR、作業ログなどの雛形 |
-| `docs/ai-prompts/` | AIに渡したプロンプトの保存場所 |
-| `docs/adr/` | 重要な判断を記録する場所 |
-| `.github/` | GitHub上のIssue/PRテンプレートや設定 |
-| `scripts/` | チェック用スクリプト |
+| README.md | 入口・魅力・概要・最初の使い方 |
+| docs/adoption-guide.md | 導入手順・移行手順・具体例 |
+| PROMPT.md | AIに渡す正本・実行ルール |
+| PROMPT.txt | PROMPT.mdのコピペ版 |
+| docs/templates/ | Issue/PR/ログ/ADRの雛形 |
+| docs/core/ | チーム運用・商用運用の詳細ルール |
+| docs/examples/ | 想定ユースケースと導入例 |
 
-導入手順の詳細は [docs/adoption-guide.md](docs/adoption-guide.md) を参照してください。
+## 導入事例・使い方の例
 
-## 基本ワークフロー
+### 例1: 学生の個人開発
+Todoアプリやポートフォリオ制作で、AIに作業を依頼しながらIssueと作業ログを残す。  
+使うファイル: `PROMPT.md`, `docs/adoption-guide.md`, `docs/templates/work-log-template.md`
 
-Issue → Discussion → RFC/PRD → ADR → 実装PR → リリースノート → インシデント/RCA
+### 例2: 非エンジニアのプロダクト企画
+作りたい機能をIssueに整理し、AIへ実装依頼するための共通ルールとして使う。  
+使うファイル: `PROMPT.txt`, `docs/templates/sample-japanese-issue.md`（相当テンプレート）, `docs/examples/use-cases.md`
 
-- RFC/PRDは「実装前の提案書」です。
-- ADRは「重要な判断理由の記録」です。
-- RCAは「問題の根本原因の分析」です。
+### 例3: 小規模チーム開発
+PR/Issue/Discussion/commit messageを日本語で統一し、レビューしやすくする。  
+使うファイル: `docs/adoption-guide.md`, `.github/`, `docs/core/`
 
-## よくある使い方
+### 例4: 商用サービス準備
+セキュリティ、リリース、障害対応、サポート準備をチェックする。  
+使うファイル: `docs/core/commercial-readiness.md`, `docs/core/security-rules.md`, `docs/core/release-management-rules.md`
 
-### 個人開発で使う
-まず `PROMPT.md` と `docs/templates/` を使い、Issueと作業ログを残しながら進めます。
+詳細なケースは [docs/examples/use-cases.md](docs/examples/use-cases.md) と [docs/examples/adoption-examples.md](docs/examples/adoption-examples.md) を参照してください。
 
-### 学生のチーム開発で使う
-`docs/templates/` と `.github/` を使って、Issue/PRの書式をそろえます。レビュー練習にも使えます。
+## 図解・スクリーンショット
 
-### AIにコードを書いてもらう時に使う
-`PROMPT.md` と `docs/ai-prompts/` を使います。依頼内容と出力結果を対応付けて残します。
+現在はMermaid図を中心に掲載しています。今後、導入例やGitHub上のIssue/PR運用例のスクリーンショットは `docs/assets/screenshots/` に追加していきます。
 
-### AIにレビューしてもらう時に使う
-PRリンクと変更方針をAIに渡し、コメントを記録します。必要なら `docs/adr/` に判断を残します。
-
-### 商用サービスを作る時に使う
-`docs/core/` と `scripts/`、GitHub Actionsを使って品質ゲートを強化します。
-
-### 別のAIに作業を引き継ぐ時に使う
-`docs/ai-prompts/`、Issue、PR、作業ログを渡します。handoff（引き継ぎメモ）を作るとさらにスムーズです。
-
-## 商用利用を見据えた使い方
-
-このテンプレートは、次の4層を組み合わせて運用できます。
-
-- Core: 全体で共通のルール
-- Language Overlay: 言語別のルール（TypeScript/Pythonなど）
-- Project Overlay: プロダクト種別のルール（Web/API/SaaSなど）
-- Commercial Layer: 商用運用向けの監査・法務・品質ルール
-
-商用導入では、Policy as Code（ポリシーをコード化して自動チェックする考え方）が重要です。ルールを人の記憶に頼らず、CIやGitHub Actionsで継続的に確認します。
+- 資産ガイド: [docs/assets/README.md](docs/assets/README.md)
+- 図解置き場: [docs/assets/diagrams/README.md](docs/assets/diagrams/README.md)
+- スクリーンショット置き場: [docs/assets/screenshots/README.md](docs/assets/screenshots/README.md)
 
 ## GitHub日本語運用ポリシー
 
-本テンプレートでは、以下を日本語で統一する方針です。
-
-- PR本文
-- Issue本文
-- Discussion
-- commit message
-- レビューコメント
-- リリースノート
-- ADR
+- PR / Issue / Discussion / commit message は日本語を基本とする
+- 変更理由と完了条件を明記する
+- AI出力をそのまま採用せず、人間レビューとテストを必須にする
 
 ## 用語集
 
-- **Repository**: プロジェクトのファイルや履歴をまとめて管理する場所です。
-- **Issue**: 「やること」「課題」「相談」を1件ずつ管理するチケットです。
-- **PR / Pull Request**: 変更内容を共有し、レビューを依頼する仕組みです。
-- **commit**: 変更を小さな単位で履歴として保存する操作です。
-- **branch**: 変更作業を分けるための作業ラインです。
-- **README**: プロジェクトの説明書です。最初に読む入口です。
-- **docs**: 仕様書や運用ルールなどの文書置き場です。
-- **ADR**: 重要な設計判断と理由を残す記録です。
-- **AI prompt**: AIに渡す依頼文のことです。
-- **作業ログ**: その日に何をしたかを残すメモです。
-- **handoff**: 別の人やAIに作業を引き継ぐための説明です。
-- **CI**: 変更のたびにテストやチェックを自動実行する仕組みです。
-- **GitHub Actions**: GitHub上でCIを実行できる自動化機能です。
-- **commercial readiness**: 商用公開に必要な品質・運用・サポート準備のことです。
-- **policy as code**: ルールを文章だけでなくコード化し、自動チェックする方法です。
+- **ADR**: 重要な技術判断を記録するドキュメント
+- **作業ログ**: いつ、何を、なぜ行ったかの履歴
+- **AIプロンプトログ**: AIに渡した依頼文の履歴
+- **導入レベル**: 個人→チーム→商用へ段階的に進めるための運用単位
 
 ## 注意点
 
-- AIの出力をそのまま信用しない
-- 重要な情報をAIチャットだけに残さない
-- 個人情報や秘密情報をAIに渡さない
-- 実装前にIssueで目的を整理する
-- 分からない言葉が出たら用語集を見る
-- 最初から全部使おうとしなくてよい
+- READMEに情報を詰め込みすぎず、詳細はdocsへ分離する
+- 存在しない画像リンクを貼らない
+- 実績がない誇大表現（導入企業多数など）を書かない
 
 ## 次にやること
 
-1. [docs/adoption-guide.md](docs/adoption-guide.md) を開き、導入レベル（Level 1〜3）を決める。
-2. [PROMPT.md](PROMPT.md) または [PROMPT.txt](PROMPT.txt) を確認し、AIへの依頼文を準備する。
-3. 最初のIssueを作成し、`PROMPT.md` + Issue URL + 作業内容をAIに渡して小さく開始する。
-
+1. [docs/adoption-guide.md](docs/adoption-guide.md) で自分の導入レベルを選ぶ
+2. [PROMPT.md](PROMPT.md) をAIへ渡して初回タスクを依頼する
+3. 最初のIssue・PR・作業ログを作る
 
 ## ライセンス
 
