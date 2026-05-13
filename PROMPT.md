@@ -2,16 +2,37 @@
 
 ## このPROMPTの使い方
 
-このファイルは、Codex・ChatGPT・Claude・CursorなどのAIに作業を依頼するときに渡す基本プロンプトです。
+このファイルは、Codex・ChatGPT・Claude・CursorなどのAIに作業を依頼するときに渡す正本です。
 
-初めて使う場合は、以下を一緒にAIへ渡してください。
+### 最小構成
 
-- この `PROMPT.md`
+AIに以下を渡してください。
+
+- PROMPT.md
 - 対象IssueのURL
 - 作業内容
-- 必要に応じて `docs/adoption-guide.md`
 
-### 最小の依頼例
+### 導入作業を頼む場合
+
+- PROMPT.md
+- docs/adoption-guide.md
+- 対象Repository URL
+- 導入レベル
+
+### 実装を頼む場合
+
+- PROMPT.md
+- 対象Issue
+- 関連docs
+- 完了条件
+
+### レビューを頼む場合
+
+- PROMPT.md
+- 対象PR
+- レビュー観点
+
+### AIに渡す例
 
 ```text
 このRepositoryのPROMPT.mdに従って作業してください。
@@ -28,22 +49,6 @@
 - 作業ログを保存
 - AIプロンプトログを保存
 - 重要判断はADRへ保存
-```
-
-### 導入作業を依頼する場合
-
-```text
-このRepositoryにAI開発プロトコルを導入してください。
-
-参照:
-- PROMPT.md
-- docs/adoption-guide.md
-
-導入レベル:
-Level 1 / Level 2 / Level 3
-
-対象Repository:
-{{REPOSITORY_URL}}
 ```
 
 ## 日本語出力ポリシー
