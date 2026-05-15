@@ -15,9 +15,7 @@ jobs:
         uses: markdownlint/markdownlint@v0
         with:
           config: .markdownlint.yaml
-          files: |
-            **/*.md
-            !docs/examples/*.md
+          files: "**/*.md"
 
       - name: Link and docs validation
         run: bash scripts/validate-docs.sh
