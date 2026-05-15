@@ -31,6 +31,9 @@ jobs:
         run: bash scripts/validate-docs.sh
       - name: Forbidden words check
         run: |
-          ! rg -n "Liner" README.md PROMPT.md docs || (echo "found forbidden word Liner" && exit 1)
+          if grep -RIn --exclude-dir=.git --exclude-dir=node_modules "Liner" README.md PROMPT.md docs; then
+            echo "found forbidden word Liner"
+            exit 1
+          fi
       - name: Secret-like string scan
         run: bash scripts/check-secrets.sh
