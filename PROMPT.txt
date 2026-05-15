@@ -1,60 +1,53 @@
-Commercial-Grade AI-Native Engineering OS Prompt
+# AI-native 開発実行プロンプト（正本）
 
-このPROMPTの使い方
-このファイルは、Codex・ChatGPT・Claude・CursorなどのAIに作業を依頼するときに渡す正本です。
+## 0. 出力言語
+- すべて日本語で出力する。
+- PR本文、Issue追記、作業ログ、判断理由、未対応事項、リスクを日本語で記録する。
 
-最小構成（AIに渡すもの）
-- PROMPT.md
-- 対象IssueのURL
-- 作業内容
+## 1. 作業開始前に必ず行うこと
+1. リポジトリ構成を確認する。
+2. 対象Linear Issueを確認し、目的・受け入れ条件・優先度・期限を把握する。
+3. 対応するNotion作業ログページを作成または更新する。
+4. 目的、前提、影響範囲、非対象範囲を明確化する。
 
-導入作業を頼む場合
-- PROMPT.md
-- docs/adoption-guide.md
-- 対象Repository URL
-- 導入レベル
+## 2. 作業中の必須ルール
+- 重要判断（採用/不採用理由、代替案、リスク）は都度記録する。
+- 変更は最小差分で行い、無関係な整形・リネーム・リファクタをしない。
+- テスト観点、セキュリティ観点、ロールバック観点を並行して整理する。
 
-実装を頼む場合
-- PROMPT.md
-- 対象Issue
-- 関連docs
-- 完了条件
+## 3. 作業完了時の必須ルール
+- エビデンスを `docs/core/evidence-policy.md` に従って残す。
+- PR本文に以下を必ず記載する。
+  - 目的/背景
+  - 対象Linear Issue
+  - 関連Notionログ
+  - 変更内容/理由
+  - テスト結果
+  - 未対応事項
+  - リスク
+  - ロールバック方法
 
-レビューを頼む場合
-- PROMPT.md
-- 対象PR
-- レビュー観点
+## 4. AIが判断してよいこと / してはいけないこと
+### AIが判断してよい
+- 既存ルール内での実装方針提案
+- ドキュメント更新
+- テスト実行と結果整理
 
-AIに渡す例
-このRepositoryのPROMPT.mdに従って作業してください。
+### AIが単独でしてはいけない
+- production deploy
+- Linear IssueのDone確定
+- release作成
+- secret/個人情報/顧客情報を含む情報の公開
 
-対象Issue:
-{{ISSUE_URL}}
+## 5. MCP利用時の記録義務
+- 使用MCP、対象リソース、操作内容、理由、実行者、日時を記録する。
+- MCP経由でLinear/Notion/GitHubを更新した場合は、更新理由を必ず残す。
 
-作業内容:
-{{TASK_DESCRIPTION}}
-
-必ず守ること:
-- PR本文は日本語
-- commit messageは日本語
-- 作業ログを保存
-- AIプロンプトログを保存
-- 重要判断はADRへ保存
-
-日本語出力ポリシー
-すべての説明、判断理由、作業ログを日本語で出力する。
-
-GitHub日本語運用
-PR/Issue/Discussion/commit message を日本語で記録する。
-
-ガバナンス要件
-Repository Constitution / Architectural Invariants / Repository Memory Policy / Context Bootstrap Rules / AI Governance / AI Observability / AI Prompt Logging / Decision Traceability を順守。
-
-開発統制
-ADR・RFC・PRD必須条件、Branch Lifecycle、Policy as Code、Commercial Readiness、Secure SDLC、Supply Chain Security、Privacy/Compliance、Data Governance、Cost Governance、Customer Impact、Release Governance、Incident Response、Support Readiness、Observability、Recovery First を満たす。
-
-プロダクト方針
-Accessibility / Localization / Feature Flag / Deprecation / Compatibility / Definition of Done / Commercial Definition of Done を満たす。
-
-最終出力形式
-Summary / Created Files / Repository Philosophy / Japanese GitHub Operation Policy / AI Governance Strategy / Commercial Readiness Strategy / Security Strategy / Supply Chain Security Strategy / Policy as Code Strategy / Repository Memory Strategy / Context Engineering Strategy / Quality Gates / Template Versioning / Usage Guide / Recommended Next Actions
+## 6. 参照ドキュメント
+- `docs/core/development-protocol.md`
+- `docs/core/quality-gates.md`
+- `docs/core/evidence-policy.md`
+- `docs/core/security-policy.md`
+- `docs/integrations/linear.md`
+- `docs/integrations/notion.md`
+- `docs/integrations/mcp.md`
