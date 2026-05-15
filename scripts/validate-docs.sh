@@ -48,7 +48,7 @@ while IFS= read -r file; do
 
     dir="$(dirname "$file")"
     [[ -e "$dir/$clean_target" ]] || fail "Broken relative link in $file -> $target"
-  done < <(grep -oE '\[[^]]+\]\([^)]+\)' "$file" | sed -E 's/^[^\(]*\(([^)]+)\)$/\1/')
+  done < <((grep -oE '\[[^]]+\]\([^)]+\)' "$file" || true) | sed -E 's/^[^\(]*\(([^)]+)\)$/\1/')
 done < <(find . -type f -name '*.md' -not -path './.git/*' -print)
 
 echo "[validate-docs] OK"
