@@ -1,0 +1,39 @@
+name: quality
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Template existence check
+        run: |
+          test -f .github/PULL_REQUEST_TEMPLATE.md
+          test -f docs/templates/linear-issue-template.md
+          test -f docs/templates/notion-work-log-template.md
+          test -f docs/templates/evidence-template.md
+      - name: Required docs check
+        run: |
+          test -f docs/core/development-protocol.md
+          test -f docs/core/quality-gates.md
+          test -f docs/core/evidence-policy.md
+          test -f docs/integrations/linear.md
+          test -f docs/integrations/notion.md
+          test -f docs/integrations/mcp.md
+      - name: PROMPT sync check
+        run: |
+          cmp -s PROMPT.md PROMPT.txt || (echo "PROMPT.md and PROMPT.txt are not synchronized" && exit 1)
+      - name: README link check
+        run: bash scripts/validate-docs.sh
+      - name: Forbidden words check
+        run: |
+          if grep -RIn --exclude-dir=.git --exclude-dir=node_modules "Liner" README.md PROMPT.md docs; then
+            echo "found forbidden word Liner"
+            exit 1
+          fi
+      - name: Secret-like string scan
+        run: bash scripts/check-secrets.sh

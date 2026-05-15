@@ -1,10 +1,6 @@
+# Default owners
 * @your-org/engineering
-/docs/ @your-org/engineering
-/docs/architecture/ @your-org/engineering
-/docs/core/security-* @your-org/engineering
-/.github/workflows/ @your-org/engineering
-/scripts/ @your-org/engineering
-/docs/templates/ @your-org/engineering
-/.codex/prompts/ @your-org/engineering
-/docs/compliance/ @your-org/engineering
-/docs/runbooks/release.md @your-org/engineering
+
+# Docs and process
+/docs/ @your-org/engineering @your-org/pm
+/.github/ @your-org/engineering
