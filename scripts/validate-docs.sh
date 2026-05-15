@@ -21,7 +21,7 @@ required_links=(
 )
 
 for link in "${required_links[@]}"; do
-  if ! grep -q "$link" README.md; then
+  if ! grep -Fq "$link" README.md; then
     fail "README.md missing link reference: ${link}"
   fi
   [[ -f "$link" ]] || fail "Linked file does not exist: ${link}"

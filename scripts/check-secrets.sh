@@ -21,9 +21,9 @@ patterns=(
 )
 
 for pat in "${patterns[@]}"; do
-  if grep -RInE --exclude-dir=.git --exclude-dir=node_modules -- "$pat" . >/tmp/secret_matches.txt; then
+  if grep -rInE --exclude-dir=.git --exclude-dir=node_modules -- "$pat" . >/tmp/secret_matches.txt; then
     echo "[check-secrets] Potential secret detected by pattern: $pat" >&2
-    cat /tmp/secret_matches.txt >&2
+    awk -F: '{print $1":"$2": [REDACTED]"}' /tmp/secret_matches.txt >&2
     exit 1
   fi
 done
