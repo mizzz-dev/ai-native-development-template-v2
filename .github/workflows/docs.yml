@@ -1,0 +1,30 @@
+name: docs
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  docs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Markdown lint
+        uses: markdownlint/markdownlint@v0
+        with:
+          config: .markdownlint-cli2.yaml
+          files: |
+            **/*.md
+            !docs/examples/*.md
+
+      - name: Link and docs validation
+        run: bash scripts/validate-docs.sh
+
+      - name: Docs structure check
+        run: |
+          test -d docs/core
+          test -d docs/integrations
+          test -d docs/stacks
+          test -d docs/templates
