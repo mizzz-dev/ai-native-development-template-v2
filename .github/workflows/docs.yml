@@ -12,10 +12,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Markdown lint
-        uses: markdownlint/markdownlint@v0
+        uses: DavidAnson/markdownlint-cli2-action@v19
         with:
           config: .markdownlint.yaml
-          files: "**/*.md"
+          globs: |
+            **/*.md
 
       - name: Link and docs validation
         run: bash scripts/validate-docs.sh
