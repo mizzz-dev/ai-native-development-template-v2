@@ -1,0 +1,2 @@
+import { Profile } from '../core/profile.js';
+export const cppProfile: Profile = { id:'cpp', name:'C++', detectionRules:['cpp/cmake/make/meson'], generatedDocs:['cpp guide'], generatedWorkflows:['cpp-ci'], prTemplateSections:['perf','security'], qualityGates:['build','test','static analysis'], requiredTools:['compiler','cmake or make'], recommendedTools:['clang-tidy'], unsupportedOperations:['compiler install'], securityNotes:['memory safety review','supply chain check'] };

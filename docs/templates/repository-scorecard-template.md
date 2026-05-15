@@ -1,0 +1,2 @@
+# repository-scorecard-template
+

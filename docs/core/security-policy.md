@@ -1,5 +1,2 @@
-# Security Policy
-
-- 最小権限、秘匿情報の非保存、監査ログ保持を原則とする。
-- MCP経由の本番操作は禁止（人間承認フロー必須）。
-- secretらしき文字列をCIで検出し、PRで修正する。
+# Core Security Policy
+データ分類、最小権限、secret rotation、漏えい時対応、人間承認を必須化。

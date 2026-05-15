@@ -51,3 +51,10 @@
 - `docs/integrations/linear.md`
 - `docs/integrations/notion.md`
 - `docs/integrations/mcp.md`
+
+## 追加ルール
+- 必要に応じて非エンジニアにも分かる説明を併記すること。
+- セキュリティリスクを必ず確認すること。
+- AI / MCP利用時はリスクとログを残すこと。
+- Repository Scorecardに影響する変更は明記すること。
+- PR本文では専門職以外にも分かる要約を含めること。

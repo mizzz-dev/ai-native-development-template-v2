@@ -1,0 +1,2 @@
+import { Profile } from '../core/profile.js';
+export const genericProfile: Profile = { id:'generic', name:'Generic', detectionRules:['fallback'], generatedDocs:['core docs'], generatedWorkflows:['basic'], prTemplateSections:['security','non-engineer'], qualityGates:['docs','security','evidence'], requiredTools:['git'], recommendedTools:['node'], unsupportedOperations:['production access'], securityNotes:['least privilege','no secrets in repo'] };

@@ -1,0 +1,2 @@
+import { Profile } from '../core/profile.js';
+export const nextjsProfile: Profile = { id:'nextjs', name:'Next.js', detectionRules:['next dependency or next.config'], generatedDocs:['next guide'], generatedWorkflows:['next-ci'], prTemplateSections:['routing','security'], qualityGates:['lint','test','build'], requiredTools:['node'], recommendedTools:['vercel cli'], unsupportedOperations:['prod deploy'], securityNotes:['server actions review','secret handling'] };
