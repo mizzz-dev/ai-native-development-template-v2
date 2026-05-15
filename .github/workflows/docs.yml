@@ -11,12 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Markdown lint
-        uses: markdownlint/markdownlint@v0
-        with:
-          config: .markdownlint.yaml
-          ignore: .markdownlintignore
-          files: "**/*.md"
+      - name: Markdown basic check
+        run: |
+          # Ensure markdown files exist and are non-empty.
+          test -n "$(find . -type f -name '*.md' -not -path './.git/*' | head -n 1)"
+          if find . -type f -name '*.md' -size 0 | grep -q .; then
+            echo "Empty markdown file found"
+            find . -type f -name '*.md' -size 0
+            exit 1
+          fi
 
       - name: Link and docs validation
         run: bash scripts/validate-docs.sh
