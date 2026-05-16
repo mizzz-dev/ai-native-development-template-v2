@@ -90,3 +90,12 @@
 - policy as codeは保証ではなく検証可能性を高める仕組みとして扱う。
 - validate結果にWARN/FAILがある場合はPR本文に未対応事項として記録する。
 - high assurance環境ではhuman approvalとaudit evidenceを必須にする。
+
+
+## Governance Platform updates
+- Governance Dashboard: `create-ai-native-dev dashboard` / `--json`
+- Policy Enforcement: `create-ai-native-dev enforce policy`
+- Evidence Graph / AI Provenance / Drift Detection / Continuous Validation docsを参照
+- policy violationがある場合はPRに未対応事項として記録
+- AI provenanceはprompt全文ではなくsummaryのみを保存
+- high assuranceではhuman approvalとaudit evidenceを必須

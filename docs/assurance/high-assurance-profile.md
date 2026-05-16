@@ -22,3 +22,12 @@ Restrictedツールは原則禁止または代替必須。外部SaaS前提にし
 - human approval必須
 - AI承認代行禁止
 - evidence automation必須
+
+
+## Governance Platform updates
+- Governance Dashboard: `create-ai-native-dev dashboard` / `--json`
+- Policy Enforcement: `create-ai-native-dev enforce policy`
+- Evidence Graph / AI Provenance / Drift Detection / Continuous Validation docsを参照
+- policy violationがある場合はPRに未対応事項として記録
+- AI provenanceはprompt全文ではなくsummaryのみを保存
+- high assuranceではhuman approvalとaudit evidenceを必須

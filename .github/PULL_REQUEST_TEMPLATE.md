@@ -48,3 +48,19 @@
 - [ ] governance diagnostics確認
 - [ ] AI generated code review
 - [ ] evidence archive確認
+
+
+## Governance Platform updates
+- Governance Dashboard: `create-ai-native-dev dashboard` / `--json`
+- Policy Enforcement: `create-ai-native-dev enforce policy`
+- Evidence Graph / AI Provenance / Drift Detection / Continuous Validation docsを参照
+- policy violationがある場合はPRに未対応事項として記録
+- AI provenanceはprompt全文ではなくsummaryのみを保存
+- high assuranceではhuman approvalとaudit evidenceを必須
+
+- [ ] governance dashboard確認
+- [ ] policy enforcement確認
+- [ ] evidence graph影響
+- [ ] AI provenance影響
+- [ ] drift detection影響
+- [ ] continuous validation影響
