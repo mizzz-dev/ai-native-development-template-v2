@@ -149,3 +149,11 @@ MIT
 - Governance Diagnostics: `docs/cli/governance-diagnostics.md`
 - Release/Rollback/Governance Readiness: `docs/quality/`
 - AI Review Layer / MCP Governance / Golden Path: `docs/governance/`
+
+## Platform Expansion (Issue #16)
+- [Workflow Apply Engine](docs/cli/commands.md)
+- [Plugin Architecture](docs/platform/plugin-architecture.md)
+- [Policy as Code](docs/platform/policy-as-code.md)
+- [Validation Engine](docs/cli/commands.md)
+- [Registry Design](docs/platform/registry-design.md)
+- [Evidence-aware Generation](docs/platform/evidence-aware-generation.md)

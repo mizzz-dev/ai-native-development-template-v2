@@ -1,4 +1,5 @@
-0.7.0
+# Version
 
-- 0.6.0 (cli mvp)
-- 2026-05-16: workflow/profile/readiness/governance mvp
+- Current Version: 0.7.0
+- Change Type: minor
+- Notes: Workflow Apply Engine / Validation / Plugin+Policy+Registry基盤を追加
