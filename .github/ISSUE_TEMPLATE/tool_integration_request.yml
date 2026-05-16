@@ -1,0 +1,11 @@
+name: Tool Integration Request
+description: Request integration of a tool
+body:
+- {type: input, id: name, attributes: {label: Tool name}}
+- {type: input, id: category, attributes: {label: Category}}
+- {type: textarea, id: usecase, attributes: {label: Use case}}
+- {type: textarea, id: data, attributes: {label: Data handled}}
+- {type: textarea, id: secret, attributes: {label: Secret / token needs}}
+- {type: dropdown, id: hosting, attributes: {label: SaaS / self-hosted, options: [saas, self-hosted, both]}}
+- {type: input, id: mcp, attributes: {label: MCP compatibility}}
+- {type: dropdown, id: risk, attributes: {label: Risk level, options: [low, medium, high]}}

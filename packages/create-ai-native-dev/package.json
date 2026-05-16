@@ -1,6 +1,6 @@
 {
   "name": "create-ai-native-dev",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Scaffold and diagnose AI-native development repository standards.",
   "license": "MIT",
   "type": "module",
@@ -31,10 +31,19 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/cli.js",
     "prepack": "npm run build",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "test": "vitest run"
   },
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^5.6.3"
-  }
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "keywords": [
+    "ai",
+    "template",
+    "governance",
+    "security",
+    "cli"
+  ]
 }

@@ -1,12 +1,15 @@
-# create-ai-native-dev (MVP)
+# create-ai-native-dev
 
-`npx create-ai-native-dev` / `npm create ai-native-dev@latest` で、既存リポジトリにAI-native開発テンプレートの最小導入と診断を行うCLIです。
+AI Native開発テンプレートを初期化・診断するCLIです。
 
-## コマンド
-- `create-ai-native-dev init [--profile generic|react|nextjs|cpp] [--dry-run]`
-- `create-ai-native-dev doctor`
+## Commands
+- `init --dry-run`
+- `doctor [--assurance|--tools|--release|--rollback|--governance]`
+- `list profiles|tools`
+- `add workflow <name> --dry-run`
+- `apply workflow <name> --dry-run`
+- `validate`
+- `dashboard [--json]`
+- `enforce policy [--dry-run]`
 
-## 安全設計
-- 既存ファイルは無断上書きしません（conflictはskip）。
-- `--dry-run` で生成予定とmanifestを確認できます。
-- secret/tokenの入力・保存、外部API接続、本番接続は行いません。
+詳細は `../../docs/cli/reference.md` を参照。

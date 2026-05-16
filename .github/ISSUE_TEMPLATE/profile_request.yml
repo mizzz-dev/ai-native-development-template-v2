@@ -1,0 +1,12 @@
+name: Profile Request
+description: Request a new stack profile
+body:
+- {type: input, id: stack, attributes: {label: Target stack}}
+- {type: input, id: language, attributes: {label: Language}}
+- {type: input, id: framework, attributes: {label: Framework}}
+- {type: input, id: cloud, attributes: {label: Cloud}}
+- {type: input, id: db, attributes: {label: DB}}
+- {type: input, id: testtool, attributes: {label: Test tool}}
+- {type: textarea, id: docs, attributes: {label: Generated docs}}
+- {type: textarea, id: workflow, attributes: {label: Workflow needs}}
+- {type: textarea, id: sec, attributes: {label: Security considerations}}
