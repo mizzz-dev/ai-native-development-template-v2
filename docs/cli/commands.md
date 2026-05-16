@@ -35,3 +35,12 @@
 - safety behavior: 外部API/secret/本番環境への接続なし
 - high assurance注意点: WARN/FAILはPRへ未対応事項として記録
 - 失敗時: FAILがあると非0終了
+
+
+## Governance Platform updates
+- Governance Dashboard: `create-ai-native-dev dashboard` / `--json`
+- Policy Enforcement: `create-ai-native-dev enforce policy`
+- Evidence Graph / AI Provenance / Drift Detection / Continuous Validation docsを参照
+- policy violationがある場合はPRに未対応事項として記録
+- AI provenanceはprompt全文ではなくsummaryのみを保存
+- high assuranceではhuman approvalとaudit evidenceを必須

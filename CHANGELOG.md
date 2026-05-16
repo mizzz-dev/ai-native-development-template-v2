@@ -27,3 +27,12 @@
 - Policy as Code docs + policy templatesを追加
 - Registry Design / Evidence-aware Generation docsを追加
 - README, PROMPT, CLI docs更新
+
+
+## Governance Platform updates
+- Governance Dashboard: `create-ai-native-dev dashboard` / `--json`
+- Policy Enforcement: `create-ai-native-dev enforce policy`
+- Evidence Graph / AI Provenance / Drift Detection / Continuous Validation docsを参照
+- policy violationがある場合はPRに未対応事項として記録
+- AI provenanceはprompt全文ではなくsummaryのみを保存
+- high assuranceではhuman approvalとaudit evidenceを必須
