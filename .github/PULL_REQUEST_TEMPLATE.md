@@ -25,3 +25,16 @@
 - [ ] 監査証跡リンク
 - [ ] SBOM / dependency / secret scan確認
 - [ ] 本番影響有無
+
+## Tool導入チェック
+- [ ] 新規ツール導入有無
+- [ ] 外部SaaS利用有無
+- [ ] tool risk level
+- [ ] secret / token取扱い
+- [ ] MCP利用有無
+- [ ] data classification
+- [ ] approval / evidence link
+- [ ] air-gapped対応への影響
+- [ ] vendor lock-in影響
+- [ ] cost impact
+- [ ] tool撤退方法

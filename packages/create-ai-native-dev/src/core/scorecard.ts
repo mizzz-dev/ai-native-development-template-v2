@@ -46,6 +46,9 @@ export function evaluateScorecard(cwd: string) {
     scorePresence(cwd, 'secret scan', 'scripts/check-secrets.sh'),
     scorePresence(cwd, 'Linear/Notion/MCP/Figma docs', 'docs/integrations'),
     scorePresence(cwd, 'Stack Profile docs', 'docs/tools/toolchain-profiles.md'),
+    scorePresence(cwd, 'tool integration catalog', 'docs/tools/tool-integration-catalog.md'),
+    scorePresence(cwd, 'tool selection matrix', 'docs/tools/tool-selection-matrix.md'),
+    scorePresence(cwd, 'tool risk classification', 'docs/tools/tool-risk-classification.md'),
   ];
   const raw = items.reduce((acc, item) => acc + item.score, 0);
   const max = items.length * 3;
