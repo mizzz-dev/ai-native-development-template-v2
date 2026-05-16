@@ -82,3 +82,11 @@
 - rollback可能性を必ず確認する。
 - AI生成コードはsecurity / dependency / rollback / threat観点でレビューする。
 - governance診断で不足があればPRに未対応事項として明記する。
+
+## Issue #16 Additions
+- workflow apply時は既存ファイルを無断上書きしない。
+- workflow生成時はsecret、権限、実行trigger、artifact retentionを確認する。
+- plugin導入時はtrust level、権限、生成物、禁止操作を確認する。
+- policy as codeは保証ではなく検証可能性を高める仕組みとして扱う。
+- validate結果にWARN/FAILがある場合はPR本文に未対応事項として記録する。
+- high assurance環境ではhuman approvalとaudit evidenceを必須にする。

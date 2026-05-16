@@ -1,0 +1,20 @@
+name: Security Scan
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Secret scan placeholder
+        run: echo "Enable gitleaks/secret scanner based on target environment"
+      - name: Dependency review placeholder
+        run: echo "Enable dependency audit tool (npm audit/pip-audit/OSV)"
+      - name: SAST placeholder
+        run: echo "Enable Semgrep/CodeQL according to policy"
+      - name: IaC/Container scan placeholder
+        run: echo "Enable Checkov/Trivy according to policy"

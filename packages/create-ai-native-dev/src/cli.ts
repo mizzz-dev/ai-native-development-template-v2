@@ -3,6 +3,8 @@ import { initCommand } from './commands/init.js';
 import { doctorCommand } from './commands/doctor.js';
 import fs from 'node:fs';
 import path from 'node:path';
+import { applyCommand } from './commands/apply.js';
+import { validateCommand } from './commands/validate.js';
 
 const args = process.argv.slice(2);
 const cmd = args[0];
@@ -79,4 +81,6 @@ else if (cmd === 'list' && sub === 'profiles') {
 else if (cmd === 'add' && sub === 'tool') addToolDryRun(toolName);
 else if (cmd === 'add' && sub === 'workflow') addWorkflowDryRun(toolName);
 else if (cmd === 'add' && sub === 'profile') addProfileDryRun(toolName);
-else console.log('Usage: create-ai-native-dev <init|doctor|list profiles|list tools|add tool|add workflow|add profile> [--dry-run] [--assurance] [--tools] [--release] [--rollback] [--governance] [--category <name>] [--profile generic|react|nextjs|cpp]');
+else if (cmd === 'apply') { const code = applyCommand(args.slice(1)); if (code !== 0) throw new Error(`Command failed: ${code}`); }
+else if (cmd === 'validate') { const code = validateCommand(); if (code !== 0) throw new Error(`Command failed: ${code}`); }
+else console.log('Usage: create-ai-native-dev <init|doctor|list profiles|list tools|add tool|add workflow|add profile|apply workflow|validate> [--dry-run] [--assurance] [--tools] [--release] [--rollback] [--governance] [--category <name>] [--profile generic|react|nextjs|cpp]');

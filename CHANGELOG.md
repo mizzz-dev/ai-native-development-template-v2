@@ -18,3 +18,12 @@
 ## 0.7.0 - 2026-05-16
 - Workflow Generator/Profile Generator/Readiness診断/Governance診断のMVPを追加。
 - AI Review Layer・MCP operation governance・Golden Path/Approved Toolchain docsを追加。
+
+## 0.7.0
+- Workflow Apply Engine (apply workflow) を追加
+- Validation Engine (validate) を追加
+- workflow templates (react/nextjs/security/sbom) を追加
+- Plugin Architecture / SDK / Validation docsを追加
+- Policy as Code docs + policy templatesを追加
+- Registry Design / Evidence-aware Generation docsを追加
+- README, PROMPT, CLI docs更新
