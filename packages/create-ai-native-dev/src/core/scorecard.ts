@@ -25,7 +25,7 @@ function scoreReadme(cwd: string): ScoreItem {
 function scorePresence(cwd: string, name: string, rel: string): ScoreItem {
   if (!exists(cwd, rel)) return { name, score: 0, note: `${rel} がありません` };
   const lines = fs.statSync(path.join(cwd, rel)).isFile()
-    ? fs.readFileSync(path.join(cwd, rel), 'utf-8').split('\n').filter((l) => l.trim()).length
+    ? fs.readFileSync(path.join(cwd, rel), 'utf-8').split('\n').filter((l: string) => l.trim()).length
     : countFiles(cwd, rel);
   if (lines <= 2) return { name, score: 1, note: `${rel} は存在するが内容が最小限` };
   if (lines <= 8) return { name, score: 2, note: `${rel} は実務利用可能な最小構成` };

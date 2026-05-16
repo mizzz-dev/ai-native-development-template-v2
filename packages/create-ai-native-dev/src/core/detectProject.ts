@@ -19,8 +19,8 @@ export function detectProject(cwd: string): Detection {
   if (exists(path.join(cwd, 'CMakeLists.txt'))) s.push('CMakeLists.txt');
   if (exists(path.join(cwd, 'Makefile'))) s.push('Makefile');
   if (exists(path.join(cwd, 'meson.build'))) s.push('meson.build');
-  if (fs.readdirSync(cwd).some((f) => f.endsWith('.cpp'))) s.push('*.cpp');
-  if (fs.readdirSync(cwd).some((f) => f.endsWith('.hpp'))) s.push('*.hpp');
+  if (fs.readdirSync(cwd).some((f: string) => f.endsWith('.cpp'))) s.push('*.cpp');
+  if (fs.readdirSync(cwd).some((f: string) => f.endsWith('.hpp'))) s.push('*.hpp');
   if (exists(path.join(cwd, '.github/workflows'))) s.push('.github/workflows');
   if (exists(path.join(cwd, '.github/PULL_REQUEST_TEMPLATE.md'))) s.push('.github/PULL_REQUEST_TEMPLATE.md');
   if (exists(path.join(cwd, 'PROMPT.md'))) s.push('PROMPT.md');
