@@ -1,0 +1,40 @@
+{
+  "name": "create-ai-native-dev",
+  "version": "0.1.0",
+  "description": "Scaffold and diagnose AI-native development repository standards.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "create-ai-native-dev": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizzz-dev/ai-native-development-template-v2.git",
+    "directory": "packages/create-ai-native-dev"
+  },
+  "homepage": "https://github.com/mizzz-dev/ai-native-development-template-v2/tree/main/packages/create-ai-native-dev",
+  "bugs": {
+    "url": "https://github.com/mizzz-dev/ai-native-development-template-v2/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli.js",
+    "prepack": "npm run build",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

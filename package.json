@@ -1,0 +1,11 @@
+{
+  "name": "ai-native-development-template-v2",
+  "private": true,
+  "version": "0.6.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:create-ai-native-dev": "npm -w packages/create-ai-native-dev run build"
+  }
+}

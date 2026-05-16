@@ -1,0 +1,2 @@
+import { Profile } from '../core/profile.js';
+export const reactProfile: Profile = { id:'react', name:'React', detectionRules:['package.json + react'], generatedDocs:['react guide'], generatedWorkflows:['frontend-ci'], prTemplateSections:['ui','security'], qualityGates:['lint','test','build'], requiredTools:['node','npm'], recommendedTools:['pnpm'], unsupportedOperations:['runtime install'], securityNotes:['xss review','dependency updates'] };
