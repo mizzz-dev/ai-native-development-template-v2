@@ -10,6 +10,6 @@ export function doctorCommand() {
   console.log(`Score: ${score.total}/100`);
   console.log('Maturity:', score.maturity);
   console.log('Category scores (0-3):');
-  score.items.forEach((i) => console.log(`- ${i.name}: ${i.score}`));
+  score.items.forEach((i) => console.log(`- ${i.name}: ${i.score} (${i.note})`));
   console.log('Recommendations:', score.items.filter((i) => i.score < 2).map((i) => i.name).join(', ') || 'No major gaps');
 }
