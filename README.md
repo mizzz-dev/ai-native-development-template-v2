@@ -120,3 +120,8 @@ MIT
 - `npm create ai-native-dev@latest`
 - 詳細: `docs/cli/create-ai-native-dev.md`
 - 導入ガイド: `docs/getting-started/non-engineer-quickstart.md`, `docs/getting-started/engineer-quickstart.md`
+
+## 追加ドキュメント（Stack Catalog / High Assurance）
+- Stack catalog: `docs/catalog/stack-catalog.md`
+- High assurance: `docs/assurance/high-assurance-profile.md`
+- CLI taxonomy: `docs/cli/profile-taxonomy.md`

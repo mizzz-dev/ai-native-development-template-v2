@@ -58,3 +58,11 @@
 - AI / MCP利用時はリスクとログを残すこと。
 - Repository Scorecardに影響する変更は明記すること。
 - PR本文では専門職以外にも分かる要約を含めること。
+
+[High Assurance Rules]
+- prioritize safety/evidence/approval/reproducibility over convenience
+- never send confidential data to AI
+- MCP write operations require human approval
+- do not let AI operate production environments
+- verify supply chain, SBOM, dependencies, artifact signing
+- keep change-control and audit evidence

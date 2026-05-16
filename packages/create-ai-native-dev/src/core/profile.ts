@@ -13,3 +13,4 @@ export type Profile = {
   unsupportedOperations: string[];
   securityNotes: string[];
 };
+export const PROFILE_CATEGORIES = ['language','frontend','backend','mobile','desktop','infra','database','cloud','deploy','test','security','observability','data-ai','embedded-iot'] as const;
