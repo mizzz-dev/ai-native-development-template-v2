@@ -8,3 +8,6 @@
 - secret/tokenをCLI・Issue・PRへ記載しない
 
 カテゴリ一覧は `docs/tools/categories/` を参照。
+
+## Governance運用
+- approved toolchain / golden path と紐付ける。

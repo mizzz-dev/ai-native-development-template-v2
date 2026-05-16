@@ -74,3 +74,11 @@
 - tool導入は便利さだけでなく、運用負荷・security・vendor lock-inを評価する
 - 高保証・air-gapped環境では外部SaaSを前提にしない
 - コスト見積もりやコンプライアンス対応は保証ではなく判断材料として扱う
+
+## Issue #14 追加ガード
+
+- workflow生成時はCI/CDの安全性、secret、権限、実行タイミングを確認する。
+- release前はrelease readinessを確認する。
+- rollback可能性を必ず確認する。
+- AI生成コードはsecurity / dependency / rollback / threat観点でレビューする。
+- governance診断で不足があればPRに未対応事項として明記する。

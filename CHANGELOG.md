@@ -14,3 +14,7 @@
 - Tool Integration Catalog / Tool Selection Matrix / Tool Risk Classification を追加
 - Tool profile/category docs と templates を追加
 - CLIに `list tools` / `add tool --dry-run` / `doctor --tools` を追加
+
+## 0.7.0 - 2026-05-16
+- Workflow Generator/Profile Generator/Readiness診断/Governance診断のMVPを追加。
+- AI Review Layer・MCP operation governance・Golden Path/Approved Toolchain docsを追加。

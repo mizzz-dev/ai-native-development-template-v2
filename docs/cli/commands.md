@@ -11,3 +11,9 @@
 - `create-ai-native-dev list tools [--category <name>]`
 - `create-ai-native-dev add tool <name> --dry-run`
 - `create-ai-native-dev doctor --tools`
+
+- `create-ai-native-dev add workflow <react|nextjs|cpp|python|go|security|sbom> --dry-run`
+- `create-ai-native-dev add profile <react|aws|postgres|playwright|opentelemetry> --dry-run`
+- `create-ai-native-dev doctor --release`
+- `create-ai-native-dev doctor --rollback`
+- `create-ai-native-dev doctor --governance`

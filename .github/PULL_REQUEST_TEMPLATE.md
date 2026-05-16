@@ -38,3 +38,13 @@
 - [ ] vendor lock-in影響
 - [ ] cost impact
 - [ ] tool撤退方法
+
+
+## Workflow/Readiness/Governance確認
+- [ ] workflow generator利用有無
+- [ ] profile generator利用有無
+- [ ] release readiness確認
+- [ ] rollback readiness確認
+- [ ] governance diagnostics確認
+- [ ] AI generated code review
+- [ ] evidence archive確認
