@@ -10,3 +10,6 @@
 | Offline/Air-gapped | Jenkins, GitLab self-host, MkDocs | 内部MCP | 外部API依存 | ローカルのみ | 不可 |
 
 詳細は `docs/tools/profiles/` を参照。
+
+## Golden Path連携
+- high assurance / offline で許可されたtoolchainを明記する。

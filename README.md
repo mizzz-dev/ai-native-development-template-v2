@@ -140,3 +140,12 @@ MIT
 - [AI Review Layer](docs/tools/ai-review-layer.md)
 - [Air-gapped alternatives](docs/tools/air-gapped-tool-alternatives.md)
 - [Governance Dashboard構想](docs/tools/governance-dashboard.md)
+
+
+## Workflow / Readiness / Governance (Issue #14)
+- Workflow Generator: `docs/cli/workflow-generator.md`
+- Profile Generator: `docs/cli/profile-generator.md`
+- Readiness Commands: `docs/cli/readiness-commands.md`
+- Governance Diagnostics: `docs/cli/governance-diagnostics.md`
+- Release/Rollback/Governance Readiness: `docs/quality/`
+- AI Review Layer / MCP Governance / Golden Path: `docs/governance/`

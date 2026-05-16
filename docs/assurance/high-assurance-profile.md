@@ -17,3 +17,8 @@ AI/MCP制約:
 
 ## Tool制約
 Restrictedツールは原則禁止または代替必須。外部SaaS前提にしない。
+
+## Workflow/Readiness要件
+- human approval必須
+- AI承認代行禁止
+- evidence automation必須

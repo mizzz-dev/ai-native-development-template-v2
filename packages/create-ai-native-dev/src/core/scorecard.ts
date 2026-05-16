@@ -49,6 +49,9 @@ export function evaluateScorecard(cwd: string) {
     scorePresence(cwd, 'tool integration catalog', 'docs/tools/tool-integration-catalog.md'),
     scorePresence(cwd, 'tool selection matrix', 'docs/tools/tool-selection-matrix.md'),
     scorePresence(cwd, 'tool risk classification', 'docs/tools/tool-risk-classification.md'),
+    scorePresence(cwd, 'release readiness', 'docs/quality/release-readiness.md'),
+    scorePresence(cwd, 'rollback readiness', 'docs/quality/rollback-readiness.md'),
+    scorePresence(cwd, 'governance readiness', 'docs/quality/governance-readiness.md'),
   ];
   const raw = items.reduce((acc, item) => acc + item.score, 0);
   const max = items.length * 3;
