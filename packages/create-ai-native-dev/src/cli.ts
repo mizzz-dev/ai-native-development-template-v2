@@ -81,6 +81,6 @@ else if (cmd === 'list' && sub === 'profiles') {
 else if (cmd === 'add' && sub === 'tool') addToolDryRun(toolName);
 else if (cmd === 'add' && sub === 'workflow') addWorkflowDryRun(toolName);
 else if (cmd === 'add' && sub === 'profile') addProfileDryRun(toolName);
-else if (cmd === 'apply') { const code = applyCommand(args.slice(1)); if (code !== 0) throw new Error(`Command failed: ${code}`); }
-else if (cmd === 'validate') { const code = validateCommand(); if (code !== 0) throw new Error(`Command failed: ${code}`); }
+else if (cmd === 'apply') { const code = applyCommand(args.slice(1)); if (code === 1) throw new Error(`Command failed: ${code}`); }
+else if (cmd === 'validate') { const code = validateCommand(); if (code === 1) throw new Error(`Command failed: ${code}`); }
 else console.log('Usage: create-ai-native-dev <init|doctor|list profiles|list tools|add tool|add workflow|add profile|apply workflow|validate> [--dry-run] [--assurance] [--tools] [--release] [--rollback] [--governance] [--category <name>] [--profile generic|react|nextjs|cpp]');
