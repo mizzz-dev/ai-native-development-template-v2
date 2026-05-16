@@ -9,3 +9,8 @@
 ## Unreleased
 - stack catalog と high assurance 向けドキュメント群を追加
 - `list profiles` と `doctor --assurance` を追加
+
+## 2026-05-16
+- Tool Integration Catalog / Tool Selection Matrix / Tool Risk Classification を追加
+- Tool profile/category docs と templates を追加
+- CLIに `list tools` / `add tool --dry-run` / `doctor --tools` を追加

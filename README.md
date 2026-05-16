@@ -125,3 +125,18 @@ MIT
 - Stack catalog: `docs/catalog/stack-catalog.md`
 - High assurance: `docs/assurance/high-assurance-profile.md`
 - CLI taxonomy: `docs/cli/profile-taxonomy.md`
+
+## Tool Integration
+- [Tool Integration Catalog](docs/tools/tool-integration-catalog.md)
+- [Tool Selection Matrix](docs/tools/tool-selection-matrix.md)
+- [Tool Risk Classification](docs/tools/tool-risk-classification.md)
+- [Tool profiles](docs/tools/profiles/)
+- [MCP Tool Permission Matrix Template](docs/templates/mcp-tool-permission-matrix-template.md)
+- [Recommended Architecture Generator](docs/tools/recommended-architecture-generator.md)
+- [Cost Estimation](docs/tools/cost-estimation.md)
+- [Vendor Lock-in Analysis](docs/tools/vendor-lock-in-analysis.md)
+- [Compliance Mapping](docs/tools/compliance-mapping.md)
+- [Team Maturity Assessment](docs/tools/team-maturity-assessment.md)
+- [AI Review Layer](docs/tools/ai-review-layer.md)
+- [Air-gapped alternatives](docs/tools/air-gapped-tool-alternatives.md)
+- [Governance Dashboard構想](docs/tools/governance-dashboard.md)
