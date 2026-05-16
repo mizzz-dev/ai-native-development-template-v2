@@ -16,6 +16,11 @@ export function detectProject(cwd: string): Detection {
   if (exists(path.join(cwd, 'vite.config.ts')) || exists(path.join(cwd, 'vite.config.js'))) s.push('vite.config.*');
   if (exists(path.join(cwd, 'next.config.js')) || exists(path.join(cwd, 'next.config.mjs')) || exists(path.join(cwd, 'next.config.ts'))) s.push('next.config.*');
   if (exists(path.join(cwd, 'tsconfig.json'))) s.push('tsconfig.json');
+
+  if (exists(path.join(cwd, 'requirements.txt')) || exists(path.join(cwd, 'pyproject.toml'))) s.push('python project');
+  if (exists(path.join(cwd, 'go.mod'))) s.push('go module');
+  if (exists(path.join(cwd, 'pom.xml')) || exists(path.join(cwd, 'build.gradle')) || exists(path.join(cwd, 'build.gradle.kts'))) s.push('jvm build file');
+
   if (exists(path.join(cwd, 'CMakeLists.txt'))) s.push('CMakeLists.txt');
   if (exists(path.join(cwd, 'Makefile'))) s.push('Makefile');
   if (exists(path.join(cwd, 'meson.build'))) s.push('meson.build');

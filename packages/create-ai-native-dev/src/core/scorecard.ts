@@ -53,3 +53,30 @@ export function evaluateScorecard(cwd: string) {
   const maturity = total <= 39 ? 'Not Ready' : total <= 59 ? 'Basic' : total <= 79 ? 'Team Ready' : 'High Quality';
   return { items, total, maturity };
 }
+
+
+export function evaluateAssuranceScorecard(cwd: string) {
+  const checks: Array<[string,string]> = [
+    ['identity and access', 'docs/assurance/zero-trust-development.md'],
+    ['branch protection', 'docs/core/branch-lifecycle-rules.md'],
+    ['change control', 'docs/assurance/change-control-policy.md'],
+    ['CI/CD security', 'docs/assurance/secure-sdlc-policy.md'],
+    ['secret management', 'docs/security/permissions-and-secrets.md'],
+    ['dependency security', 'docs/assurance/supply-chain-security.md'],
+    ['SBOM / provenance', 'docs/assurance/supply-chain-security.md'],
+    ['artifact signing', 'docs/assurance/supply-chain-security.md'],
+    ['audit logging', 'docs/assurance/audit-evidence-matrix.md'],
+    ['incident response', 'docs/assurance/incident-response-readiness.md'],
+    ['rollback readiness', 'docs/runbooks/rollback.md'],
+    ['data classification', 'docs/assurance/data-classification-policy.md'],
+    ['AI/MCP governance', 'docs/assurance/high-assurance-profile.md'],
+    ['release approval', 'docs/assurance/release-approval-policy.md'],
+    ['observability', 'docs/catalog/observability-profiles.md'],
+    ['backup / restore', 'docs/runbooks/disaster-recovery.md'],
+  ];
+  const items = checks.map(([n,r]) => scorePresence(cwd,n,r));
+  const raw = items.reduce((a,i)=>a+i.score,0);
+  const total = Math.round((raw / (items.length*3))*100);
+  const maturity = total <= 39 ? 'Not Ready' : total <= 59 ? 'Basic' : total <= 79 ? 'Team Ready' : 'High Quality';
+  return { items, total, maturity };
+}

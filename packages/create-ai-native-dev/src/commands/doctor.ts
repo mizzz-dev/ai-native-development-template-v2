@@ -1,10 +1,10 @@
 import { detectProject } from '../core/detectProject.js';
-import { evaluateScorecard } from '../core/scorecard.js';
+import { evaluateAssuranceScorecard, evaluateScorecard } from '../core/scorecard.js';
 
-export function doctorCommand() {
+export function doctorCommand(opts?: { assurance?: boolean }) {
   const cwd = process.cwd();
   const detection = detectProject(cwd);
-  const score = evaluateScorecard(cwd);
+  const score = opts?.assurance ? evaluateAssuranceScorecard(cwd) : evaluateScorecard(cwd);
   console.log('Detected stack:', detection.profile);
   console.log('Signals:', detection.signals.join(', ') || 'none');
   console.log(`Score: ${score.total}/100`);
