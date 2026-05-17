@@ -1,0 +1,10 @@
+name: Plugin Request
+description: Request plugin support
+body:
+- {type: input, id: name, attributes: {label: Plugin name}}
+- {type: input, id: registry, attributes: {label: Target registry}}
+- {type: textarea, id: files, attributes: {label: Generated files}}
+- {type: dropdown, id: trust, attributes: {label: Trust level, options: [low, medium, high]}}
+- {type: textarea, id: prohibited, attributes: {label: Prohibited operations}}
+- {type: textarea, id: assurance, attributes: {label: High assurance compatibility}}
+- {type: textarea, id: offline, attributes: {label: Offline compatibility}}

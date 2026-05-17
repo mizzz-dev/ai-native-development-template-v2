@@ -1,0 +1,23 @@
+name: Bug Report
+description: Report a reproducible bug
+body:
+  - type: textarea
+    id: current
+    attributes: {label: Current behavior}
+  - type: textarea
+    id: expected
+    attributes: {label: Expected behavior}
+  - type: textarea
+    id: steps
+    attributes: {label: Reproduction steps}
+  - type: input
+    id: env
+    attributes: {label: Environment}
+  - type: input
+    id: cli
+    attributes: {label: CLI version}
+  - type: textarea
+    id: logs
+    attributes: {label: Logs}
+  - type: markdown
+    attributes: {value: "Security note: Do not post vulnerabilities, secrets, tokens, credentials, or private URLs in public issues."}
