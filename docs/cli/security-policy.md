@@ -1,11 +1,5 @@
 # CLI Security Policy
+secret入力・保存を受け付けない。外部APIや本番環境に接続しない。
 
-- tokenをCLI引数で受け取らない
-- secretを生成ファイルに含めない（`.env.example` のみ）
-- OS package managerを勝手に実行しない
-- compiler/runtimeを勝手にインストールしない
-- 外部API自動連携は初期MVPで行わない
-- MCP設定はサンプル生成まで（自動有効化しない）
-- 既存ファイルを無断上書きしない
-- dry-runを優先
-- supply chain security（依存検証・pinning）を重視
+## High Assurance補足
+機密情報の外部送信禁止、MCP writeの承認必須、本番操作の自動化禁止を明記。

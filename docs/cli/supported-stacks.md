@@ -16,3 +16,6 @@
 | Infrastructure/IaC | *.tf | infra docs | fmt/validate/plan | infra-ci | state保護 | Later |
 | Data | notebook/pipeline markers | data docs | data test | data-ci | データ機密 | Later |
 | AI/ML | model/prompt markers | ml docs | eval/repro | ml-ci | モデル再現性 | Later |
+
+## Catalog連携
+詳細分類は `docs/catalog/stack-catalog.md` を参照。

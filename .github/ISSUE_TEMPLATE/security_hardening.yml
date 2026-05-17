@@ -1,0 +1,17 @@
+name: Security Hardening Request
+description: Security improvement proposal (not vulnerability disclosure)
+body:
+- type: markdown
+  attributes: {value: "Not for vulnerability disclosure. Use SECURITY.md private reporting path."}
+- type: textarea
+  id: area
+  attributes: {label: Security improvement area}
+- type: input
+  id: surface
+  attributes: {label: Affected surface}
+- type: dropdown
+  id: risk
+  attributes: {label: Risk level, options: [low, medium, high]}
+- type: textarea
+  id: mitigation
+  attributes: {label: Proposed mitigation}

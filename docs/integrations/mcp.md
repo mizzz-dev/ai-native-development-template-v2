@@ -1,18 +1,10 @@
-# MCP Integration Policy
+# MCP Integration
+MCPは明示有効化のみ。権限は最小化し、操作ログを残す。
 
-## 利用目的
-Linear/Notion/GitHubの更新・参照を安全に補助する。
+## High Assurance MCP制約
+read-onlyを基本とし、write操作は人間承認と操作ログを必須とする。
 
-## 利用可能
-- Linear MCP
-- Notion MCP
-- GitHub MCP
 
-## 利用禁止
-- secret読取
-- 本番DB直接操作
-- AI単独のIssue close / production deploy / release作成
-
-## チェックリスト
-- 導入前: 権限、接続先、禁止操作、監査ログ先を定義
-- 利用後: 操作内容、理由、結果、実行者をNotionまたは作業ログに記録
+## Tool Permission Matrix
+MCPの運用テンプレートは `docs/templates/mcp-tool-permission-matrix-template.md` を使用する。
+write操作は人間承認必須。production操作は禁止。

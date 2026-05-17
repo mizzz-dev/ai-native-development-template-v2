@@ -1,8 +1,6 @@
 # Toolchain Profiles
+Generic / React / Next.js / C++ の初期正式対応。
 
-Toolchain profileは実行環境の前提（利用可能ツール）を宣言し、Stack Profileは生成対象（ドキュメント/ワークフロー）を定義する。
 
-- Toolchain profile: 何が「既に使えるか」
-- Stack profile: 何を「導入するか」
-
-CLIは両者を照合し、足りないツールはインストールせず警告として表示する。
+## Tool Selection Matrix
+`docs/tools/tool-selection-matrix.md` と `docs/tools/profiles/` を参照。

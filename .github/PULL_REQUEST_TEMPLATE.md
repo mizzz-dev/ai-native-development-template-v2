@@ -1,25 +1,16 @@
-## 目的
+## 概要
 
-## 背景
+## OSS公開品質への影響
+## contributor experienceへの影響
+## security disclosureへの影響
+## npm publish readinessへの影響
+## CLI test / fixture更新
+## examples更新
+## package metadata更新
+## supply chain確認
 
-## 対象Linear Issue
-
-## 関連Notionログ
-
-## 変更内容
-
-## 変更理由
-
-## 影響範囲
-
-## テスト内容
-
-## エビデンス
-
-## セキュリティ確認
-
-## ロールバック方法
-
-## 未対応事項
-
-## レビューで見てほしい点
+## テスト
+- [ ] build
+- [ ] tests
+- [ ] docs validation
+- [ ] secret scan

@@ -1,0 +1,15 @@
+{
+  "name": "ai-native-development-template-v2",
+  "private": true,
+  "version": "0.7.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:create-ai-native-dev": "npm -w packages/create-ai-native-dev run build",
+    "test": "npm -w packages/create-ai-native-dev run test",
+    "build": "npm run build:create-ai-native-dev",
+    "validate:docs": "bash scripts/validate-docs.sh",
+    "scan:secrets": "bash scripts/check-secrets.sh"
+  }
+}

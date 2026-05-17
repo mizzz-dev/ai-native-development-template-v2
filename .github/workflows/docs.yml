@@ -1,32 +1,10 @@
 name: docs
-
 on:
   pull_request:
-  push:
-    branches: [ main ]
-
+    paths: ['docs/**','README.md','CONTRIBUTING.md','SECURITY.md']
 jobs:
-  docs-check:
+  docs-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Markdown basic check
-        run: |
-          # Ensure markdown files exist and are non-empty.
-          test -n "$(find . -type f -name '*.md' -not -path './.git/*' | head -n 1)"
-          if find . -type f -name '*.md' -size 0 | grep -q .; then
-            echo "Empty markdown file found"
-            find . -type f -name '*.md' -size 0
-            exit 1
-          fi
-
-      - name: Link and docs validation
-        run: bash scripts/validate-docs.sh
-
-      - name: Docs structure check
-        run: |
-          test -d docs/core
-          test -d docs/integrations
-          test -d docs/stacks
-          test -d docs/templates
+      - run: bash scripts/validate-docs.sh

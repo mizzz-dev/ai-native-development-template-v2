@@ -1,0 +1,18 @@
+name: SBOM Provenance
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sbom:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: SBOM generation placeholder
+        run: echo "Enable SBOM tool (syft/cyclonedx) for your stack"
+      - name: Artifact retention placeholder
+        run: echo "Configure artifact retention per policy"
+      - name: Provenance guidance
+        run: echo "Use SLSA provenance and signing with manual approval"
+      - name: Publish gate placeholder
+        run: echo "Do not auto-publish. Keep manual approval gate."
